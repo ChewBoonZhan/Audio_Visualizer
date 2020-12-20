@@ -6,3 +6,5 @@ Please contact chewboonzhan.com if you wish to be a collaborator.
 
 Note: You need to have a https localhost, with https in order to run the code, as p5.sound.js requires it.
 Instructions on initializing https localhost will come in soon ^\_^.
+
+![alt text](https://raw.githubusercontent.com/ChewBoonZhan/Audio_Visualizer/main/git_images/screenshot_1.PNG "Screenshot of it")
