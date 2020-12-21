@@ -24,7 +24,7 @@ function setDate() {
 
 function preload() {
   load_album();
-  song = loadSound("../src/Music/resources/dance.mp3");
+  song = loadSound("../src/Music/resources/love_somebody.mp3");
   init_dots();
 }
 
@@ -34,7 +34,7 @@ function create_first_second_amp() {
   for (var j = 0; j < 2; j++) {
     for (var i = 0; i < 25; i++) {
       if (j == 0) {
-        first_amp.push(final_amp[i]);
+        first_amp.push(final_amp[i + 1 * 25]);
       } else {
         second_amp.push(final_amp[i + 9 * 25]);
       }
@@ -95,7 +95,7 @@ function get_amps() {
     return a + b;
   });
 
-  var diameter = map(total, 0, 65792, 300, 400);
+  var diameter = map(total, 0, 65792, 300, 313);
   colour = map(total, 0, 65792, 0, 33);
   big_dot.change_diameter(diameter);
 }
