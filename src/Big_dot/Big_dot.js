@@ -11,7 +11,9 @@ function Big_dot(x, y) {
   this.diameter = 300;
 
   this.show = function () {
-    //circle(this.x, this.y, this.diameter);
+    //fill("rgb(122, 174, 255)");
+    fill("white");
+    circle(this.x, this.y, this.diameter);
     this.show_side_bezel();
     image(
       img,
@@ -23,24 +25,28 @@ function Big_dot(x, y) {
   };
 
   this.show_side_bezel = function () {
+    //fill("rgb(122, 174, 255)");
     angleMode(DEGREES);
 
     push();
     translate(this.x + 1.7, this.y);
     rotate(90);
     beginShape();
-    for (var i = 0; i < 180; i++) {
-      var r = map(
-        bezel_amp[i],
-        0,
-        6425,
-        this.diameter / 2,
-        this.diameter / 2 + 33
-      );
-      var x = r * cos(i);
-      var y = r * sin(i);
-      vertex(x, y);
+    for (var j = 0; j < 2; j++) {
+      for (var i = 0; i < 18; i++) {
+        var r = map(
+          bezel_amps[j].final_amp[i],
+          0,
+          6425,
+          (this.diameter - 3.1) / 2,
+          (this.diameter - 3.1) / 2 + 35
+        );
+        var x = r * cos(i + 18 * bezel_amps[j].position);
+        var y = r * sin(i + 18 * bezel_amps[j].position);
+        vertex(x, y);
+      }
     }
+
     endShape();
     pop();
 
@@ -48,20 +54,23 @@ function Big_dot(x, y) {
     translate(this.x - 1.7, this.y);
     rotate(-90);
     beginShape();
-    var counter = 0;
-    for (var i = 179; i >= 0; i--) {
-      var r = map(
-        bezel_amp[i],
-        0,
-        6425,
-        this.diameter / 2,
-        this.diameter / 2 + 33
-      );
-      var x = r * cos(counter);
-      var y = r * sin(counter);
-      counter++;
-      vertex(x, y);
+    for (var j = 0; j < 2; j++) {
+      for (var i = 0; i < 18; i++) {
+        var r = map(
+          bezel_amps[j].final_amp[i],
+          0,
+          6425,
+          (this.diameter - 3.1) / 2,
+          (this.diameter - 3.1) / 2 + 35
+        );
+        var temp_pos = map(bezel_amps[j].position, 0, 8, 8, 0) + 0.8;
+
+        var x = r * cos(i + 18 * temp_pos);
+        var y = r * sin(i + 18 * temp_pos);
+        vertex(x, y);
+      }
     }
+
     endShape();
     pop();
   };

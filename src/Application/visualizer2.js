@@ -6,13 +6,14 @@ function setup() {
 
   create_play_button();
   init_big_dot();
+  initialize_bezel();
   create_bezel_position();
 }
 
 function draw() {
   background(colour);
-  fill("white");
+
   noStroke();
-  update_noise();
+  music_amps_ani();
   manage_dots();
 }
